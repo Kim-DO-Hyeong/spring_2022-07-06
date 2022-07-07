@@ -11,7 +11,6 @@ public class MemberRegisterService {
 	public MemberRegisterService(MemberDao memberDao) {
 		this.memberDao = memberDao;
 	}
-	
 	public long regist(RegisterRequest req) throws DuplicateMemberException{
 		// 이메일로 회원 데이터 조회
 		Member member = memberDao.selectByEmail(req.getEmail());

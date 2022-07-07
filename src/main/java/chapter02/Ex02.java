@@ -38,7 +38,10 @@ public class Ex02 {
 			}else if(command.startsWith("info")) {
 				// 가입된 모든 회원의 정보 출력 
 				processInfoCommand(command.split(" "));
+			}else if(command.startsWith("version")){
+				version();
 			}else {
+			
 			
 				// 프로그램 사용 방법 출력 
 				printHelp();
@@ -131,5 +134,9 @@ public class Ex02 {
 		memberListPrinter.printAll();
 	}
 	
+	public static void version() {
+		VersionPrinter vp = ctx.getBean("versionPrinter",VersionPrinter.class);
+		vp.printVerSion();
+	}
 	
 }

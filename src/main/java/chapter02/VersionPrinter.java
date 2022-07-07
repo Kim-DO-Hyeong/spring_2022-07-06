@@ -7,7 +7,7 @@ public class VersionPrinter {
 	public void setMajor(int major) {
 		this.major = major;
 	}
-
+	
 	public void setMinor(int minor) {
 		this.minor = minor;
 	}
