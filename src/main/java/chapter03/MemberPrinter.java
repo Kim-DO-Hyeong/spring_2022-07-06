@@ -8,7 +8,6 @@ import org.springframework.lang.Nullable;
 public class MemberPrinter {
 	
 	@Autowired(required = false) // 자동주입사항이 선택사항으로 만들 수 있음 
-
 	//	@Nullable // required = false  속성 대신 이 애노테이션을 사용 할 수 있음
 	private DateTimeFormatter dtf;
 

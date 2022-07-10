@@ -6,11 +6,12 @@ import exception.DuplicateMemberException;
 
 public class MemberRegisterService {
 	// 의존 주입
+	// DI 방식 의존 주입 - 생성자 방식
 	private MemberDao memberDao;
-	// DI 방식 의존 주입 - 생성자 방식 
 	public MemberRegisterService(MemberDao memberDao) {
 		this.memberDao = memberDao;
-	}
+	}// 의존주입 end
+	
 	public long regist(RegisterRequest req) throws DuplicateMemberException{
 		// 이메일로 회원 데이터 조회
 		Member member = memberDao.selectByEmail(req.getEmail());

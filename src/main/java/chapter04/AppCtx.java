@@ -10,7 +10,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
 
 @Configuration
-@ComponentScan(basePackages = {"chapter04"}, excludeFilters = @Filter(type = FilterType.ASSIGNABLE_TYPE, classes= {MemberDao.class}))
+@ComponentScan(basePackages = {"chapter04"}, excludeFilters = @Filter(type = FilterType.REGEX, pattern="chapter04\\\\..*Dao"))
+//@ComponentScan(basePackages = {"chapter04"}, excludeFilters = @Filter(type = FilterType.ASSIGNABLE_TYPE, classes= {MemberDao.class}))
 //@ComponentScan(basePackages = {"chapter04"}, excludeFilters = @Filter(type = FilterType.REGEX, pattern="chapter04\\..*Dao"))
 // chatpter04 에 있지만 제외시키는 excludeFilters 속성 ( 정규식 표현 ) ex ) chapter04. 으로 시작하고 Dao 로 끝나는 패턴들을 제외할 대상으로 지정  
 // 꼭 정규식 말고 지정할 타입을 ASSIGNABLE_TYPE 로 하면 제외할 대상을 지정 가능 
