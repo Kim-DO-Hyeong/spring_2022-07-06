@@ -8,11 +8,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class Ex01 {
 	
-	
 	public static void main(String[] args) {
-		ApplicationContext	ctx = new AnnotationConfigApplicationContext(AppCtx.class);
+		ApplicationContext	ctx = new AnnotationConfigApplicationContext(AppCtx2.class);
 		
-		StudyDao studyDao = ctx.getBean("studyDao1",StudyDao.class);
+		StudyDao studyDao = ctx.getBean("study",StudyDao.class);
 		
 		Member member = new Member();
 		String id = "id1";

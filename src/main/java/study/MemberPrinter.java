@@ -3,10 +3,15 @@ package study;
 import java.time.format.DateTimeFormatter;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Component;
+@Component("p")
 public class MemberPrinter {
 	
 	public DateTimeFormatter dtf;
+	@Autowired
+	public void setDateTimeFormatter(DateTimeFormatter dtf) {
+		this.dtf =dtf;
+	}
 	
 	public void printer(Member member) {
 
@@ -21,8 +26,4 @@ public class MemberPrinter {
 		System.out.println("회원정보 : "+id+","+name+", "+registDate);
 	}
 	
-	@Autowired
-	public void setDateTimeFormatter(DateTimeFormatter dtf) {
-		this.dtf = dtf;
-	}
 }

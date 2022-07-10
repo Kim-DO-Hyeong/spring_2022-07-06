@@ -2,11 +2,13 @@ package study;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-
+import org.springframework.stereotype.Component;
+@Component
 public class MemberInfoPrinter {
 	@Autowired
 	@Qualifier("study")
 	public StudyDao studyDao;
+	
 	@Autowired
 	@Qualifier("p")
 	public MemberPrinter memberPrinter;

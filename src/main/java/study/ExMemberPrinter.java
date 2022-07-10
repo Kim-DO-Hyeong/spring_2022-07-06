@@ -1,5 +1,8 @@
 package study;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ExMemberPrinter extends MemberPrinter {
 
 	@Override
