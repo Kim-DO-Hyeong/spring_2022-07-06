@@ -9,6 +9,7 @@ public class ImplCalculator1 implements Calculator{
 		for(int i=1; i<=num; i++) {
 			result *=i;
 		}
+		
 		return result;
 	}
 	

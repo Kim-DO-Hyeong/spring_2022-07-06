@@ -1,6 +1,5 @@
 package chapter06;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Ex01 {
 
@@ -13,6 +12,13 @@ public class Ex01 {
 		// ExecTimeCalculator 를 사용해서 
 		// 반복문으로 factorial 계산 시 소요시간을 출력
 		// 재귀함수로 factorial 계산 시 소요시간을 출력
+
+		Calculator cal = new ImplCalculator1();
+		System.out.println(cal);
+		
+		cal = new ImplCalculator2();
+		System.out.println(cal);
+		
 		
 		ExecTimeCalculator etc1 = new ExecTimeCalculator(cal1);
 		etc1.factorial(1000);
