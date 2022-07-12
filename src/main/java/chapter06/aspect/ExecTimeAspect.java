@@ -7,7 +7,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.core.annotation.Order;
 
 @Aspect
-@Order(1)
+@Order(2)
 public class ExecTimeAspect {
 	
 	@Pointcut("execution(public * chapter06.*.*(..))")

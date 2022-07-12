@@ -1,5 +1,6 @@
 package chapter06;
 
+
 public class ImplCalculator1 implements Calculator{
 
 	@Override
