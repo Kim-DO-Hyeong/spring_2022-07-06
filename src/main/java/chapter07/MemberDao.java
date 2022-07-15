@@ -145,20 +145,31 @@ public class MemberDao {
 	}
 	
 	
-	public int amount() {
-		String sql = "SELECT COUNT(*) AS amount FROM member";
+	public void insert1(Member member) {
 		
-		List<Integer> result = jdbcTemplate.query(sql, new RowMapper<Integer>() {
-			@Override
-			public Integer mapRow(ResultSet rs, int rowNum) throws SQLException {
-				int amount = rs.getInt("amount");
-				return amount;
-			}
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		
+		jdbcTemplate.update(new PreparedStatementCreator() {
 			
-		});
-		return result.isEmpty() ? null : result.get(0);
+			@Override
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+				String[] columnNames = {"memberNumber"};
+				
+				PreparedStatement pstmt=con.prepareStatement("INSERT INTO member(email, password,name,regDate) VALUES(?,?,?,?)",columnNames);
+				pstmt.setString(1, member.getEmail());
+				pstmt.setString(2, member.getPassword());
+				pstmt.setString(3, member.getName());
+				pstmt.setString(4, member.getRegisterDateTime().toString());
+				
+				return pstmt;
+			}
+		},keyHolder);
+		
+		Number keyValue = keyHolder.getKey();
+		int memberNumber = (int) keyValue;
+		
+		System.out.println("방금 회원 가입한 사용자의 번호는 "+memberNumber+"번 입니다.");
 	}
-	
 	
 	
 	
