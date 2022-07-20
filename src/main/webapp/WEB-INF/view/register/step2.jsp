@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
     
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>    
-    
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"  %>    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,28 +14,28 @@
 
 	<form:form action="http://localhost/2022-07-06/register/step3" method="POST" modelAttribute="registerRequest">
 		<p>
-			<label>이메일 : <br>
+			<label><spring:message code="email"/> : <br>
 				<form:input path="email" />
 			</label>
 		</p>
 		<p>
-			<label>이름 : <br>
+			<label><spring:message code="name"/> : <br>
 				<form:input path="name" />
 			</label>
 		</p>
 		
 		<p>
-			<label>비밀번호 : <br>
+			<label><spring:message code="password"/> : <br>
 				<form:password path="password" />
 			</label>
 		</p>
 		
 		<p>
-			<label>비밀번호 확인 : <br>
+			<label><spring:message code="password.comfirm"/> : <br>
 				<form:password path="confirmPassword" />
 			</label>
 		</p>
-		<input type="submit" value="회원 가입"/>
+		<input type="submit" value="<spring:message code="register.btn"/>"/>
 	</form:form>
 
 	
