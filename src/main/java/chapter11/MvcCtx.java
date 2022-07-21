@@ -32,9 +32,10 @@ public class MvcCtx implements WebMvcConfigurer {
 	
 	@Bean
 	public MessageSource messageSource() {
+		
 		ResourceBundleMessageSource rbm = new ResourceBundleMessageSource();
 		
-		rbm.setBasename("message.label");
+		rbm.setBasenames("message.label");
 		rbm.setDefaultEncoding("UTF-8");
 		
 		return rbm;
