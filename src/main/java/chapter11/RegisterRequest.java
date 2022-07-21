@@ -1,9 +1,20 @@
 package chapter11;
 
+
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+
 public class RegisterRequest {
+	@NotBlank
+	@Email
 	private String email;
+	@Size(min=5)
 	private String password;
+	@NotBlank
 	private String confirmPassword;
+	@NotBlank
 	private String name;
 	
 	public boolean isPasswordEqualToConfirmPassword() {
