@@ -7,6 +7,7 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.validation.Validator;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -41,11 +42,21 @@ public class MvcCtx implements WebMvcConfigurer {
 		
 		return rbm;
 	}
+	
+	@Bean
+	public AuthCheckInterceptor authCheckInterceptor() {
+		return new AuthCheckInterceptor();
+	}
+	
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(authCheckInterceptor()).addPathPatterns("/edit/**","/logout");
+	}
 
-//	@Override
-//	public Validator getValidator() {
-//		return new RegisterRequestValidator();
-//	}
+	@Override
+	public Validator getValidator() {
+		return new RegisterRequestValidator();
+	}
 	
 	
 	

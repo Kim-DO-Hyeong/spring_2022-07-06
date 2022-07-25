@@ -15,6 +15,9 @@ public class ControllerCtx {
 	@Autowired
 	private MemberDao memberDao;
 	
+	@Autowired
+	private ChangePasswordService changePasswordService;
+	
 	@Bean
 	public RegisterController registerController() {
 		RegisterController registerController = new RegisterController();
@@ -40,5 +43,20 @@ public class ControllerCtx {
 		loginController.setService(authSvc());
 		return loginController;
 	}
+	
+	@Bean
+	public ChangePwdController changePwdController() {
+		ChangePwdController changePwdController = new ChangePwdController();
+		changePwdController.setChangePasswordService(changePasswordService);
+		return changePwdController;
+	}
+	
+	
+	@Bean
+	public LogoutController logoutController() {
+		return new LogoutController();
+	}
+	
+	
 	
 }
