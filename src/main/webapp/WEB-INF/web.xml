@@ -23,8 +23,8 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-				chapter12.ControllerCtx
-				chapter12.MvcCtx
+				chapter13.ControllerCtx
+				chapter13.MvcCtx
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>

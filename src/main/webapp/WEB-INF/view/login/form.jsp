@@ -18,7 +18,11 @@
 		
 		<form:password path="password"/>
 		<form:errors path="password"/>
-
+		
+		<p>
+			<label>이메일 기억하기 : <form:checkbox path="rememberEmail"/> </label>
+		</p>
+		
 		<input type="submit" value="로그인">				
 	</form:form>
 </body>
