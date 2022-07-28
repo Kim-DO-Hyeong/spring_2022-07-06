@@ -101,7 +101,6 @@ public class RestMemberController {
 	public ResponseEntity<ErrorResponse> handleNotFound(){
 		return ResponseEntity
 				.status(HttpStatus.NOT_FOUND)
-				.contentType(MediaType.TEXT_PLAIN)
 				.body(new ErrorResponse("not found"));
 	}
 }
