@@ -28,9 +28,20 @@ public class ControllerCtx {
 	}
 	
 	@Bean
+	public MemberRegisterService memberRegisterService() {
+		MemberRegisterService rmc = new MemberRegisterService();
+		rmc.setMemberDao(memberDao());
+		
+		return rmc;
+	}
+	
+	
+	@Bean
 	public RestMemberController restMemberController() {
 		RestMemberController rmc = new RestMemberController();
 		rmc.setMemberDao(memberDao());
+		rmc.setMemberRegisterService(memberRegisterService());
+		
 		return rmc;
 	}
 }

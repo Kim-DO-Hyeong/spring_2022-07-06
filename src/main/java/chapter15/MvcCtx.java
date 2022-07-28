@@ -17,6 +17,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 
 @Configuration
@@ -47,6 +48,7 @@ public class MvcCtx implements WebMvcConfigurer {
 				.json()
 //				.featuresToDisable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
 				.serializerByType(LocalDateTime.class, new LocalDateTimeSerializer(dtf))
+				.deserializerByType(LocalDateTime.class, new LocalDateTimeDeserializer(dtf))
 				.build();
 		
 		converters.add(0,new MappingJackson2HttpMessageConverter(objectMapper));
